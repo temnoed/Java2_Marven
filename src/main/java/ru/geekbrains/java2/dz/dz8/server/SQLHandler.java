@@ -78,6 +78,7 @@ public class SQLHandler {
             System.out.println("Connection Error");
         }
     }
+    
 
     public static String getNickByLoginPassword(String login, String password) {
         String w = null;
