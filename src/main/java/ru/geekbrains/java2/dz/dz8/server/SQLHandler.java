@@ -6,7 +6,8 @@ import java.sql.*;
 /**
  * Класс для обработки базы данных
  */
-public class SQLHandler {
+public abstract class SQLHandler implements  java.lang.AutoCloseable {
+
 
     /**
      * Поля класса характеризуют обычное подключение к БД
@@ -56,12 +57,19 @@ public class SQLHandler {
             // он должен вызывать DriverManager.registerDriver,
             // и, как уже отмечалось, этот вызов должен происходить
             // автоматически при загрузке класса драйвера"
+        } catch (ClassNotFoundException e) {
+            // исключить невозможность найти класс драйвера
+            e.printStackTrace();
+            // вывести в системный поток ошибок
+        }
+
+        try {
             conn = DriverManager.getConnection(dbUrl, user, password);
             // получить соединение с БД в виде объекта
             // использовать стандартный класс-посредник
             // для работы с загруженным классом драйвером
-        } catch (SQLException | ClassNotFoundException e) {
-            // исключить неподключение к БД и невозможность найти класс драйвера
+        } catch (SQLException e) {
+            // исключить неподключение к БД
             e.printStackTrace();
             // вывести в системный поток ошибок
         }
@@ -72,13 +80,18 @@ public class SQLHandler {
      * Просто метод для отключения от БД
      */
     public static void disconnect() {
+
         try {
             conn.close();
+            // "Данное решение опасно, потому что
+            // если в коде сгенерируется исключение,
+            // то .close() не будет вызван.
+            // Произойдет утечка ресурса.
         } catch (Exception c) {
             System.out.println("Connection Error");
         }
     }
-    
+
 
     public static String getNickByLoginPassword(String login, String password) {
         String w = null;
