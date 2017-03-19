@@ -3,6 +3,7 @@ package ru.geekbrains.java2.dz.dz8.server;
 // с использованием сборщика Marven
 
 import javax.swing.*;
+import java.io.*;
 import java.sql.SQLException;
 // подключаемся к библиотеке с окошками
 
@@ -24,18 +25,24 @@ public class MainClass {
         jf.setVisible(true);
         // задать видимость окна
 
-        try (SQLHandler.connect();) {
-            //try {
-            //SQLHandler.connect();
-            // подключиться к базе данных
-            // используя наш класс-обработчик
+        try (SQLHandler sqlHandler = new SQLHandler()) {
+            // вызвать конструктор соединялки с БД
+            // AutoCloseble
 
             MyServer w = new MyServer();
             // создать объект нашего сервера
+
         } catch (Exception e) {
+            // может поймать какое-нибудь исключение?
             e.printStackTrace();
         }
-        //SQLHandler.disconnect();
-    }
 
+        // SQLHandler.connect();
+        // не нужен так как соединяемся конструктором
+        // подключиться к базе данных
+        // используя наш класс-обработчик
+
+        //SQLHandler.disconnect();
+        // не нужен так как AutoCloseble
+    }
 }

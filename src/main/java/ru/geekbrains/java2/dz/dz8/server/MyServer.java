@@ -6,37 +6,68 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.concurrent.TimeUnit;
+
 
 public class MyServer {
 
     private ArrayList<ClientHandler> clients = new ArrayList<ClientHandler>();
+    // по проекту частью сервера является список из клиентов,
+    // представленных в виде объектов класса ClientHandler
+
 
     public MyServer() {
         ServerSocket server = null;
-        Socket s = null;
-        final int CLIENT_AUTH_TIMEOUT = 300;
+        // сокет, к которуму будут цепляться клинеты?
+        // нельзя ли эти объекты сделать полями класса ?
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while(true) {
-                    try {
-                        Thread.sleep(1000);
-                        HashSet<ClientHandler> hss = new HashSet<>();
-                        for (ClientHandler o : clients) {
-                            if(o.getName().isEmpty()) {
-                                o.setAuthTimer(o.getAuthTimer() + 1);
-                                if(o.getAuthTimer() > CLIENT_AUTH_TIMEOUT) {
-                                    hss.add(o);
-                                }
+        Socket s = null;
+        // ещё один сокет
+
+        final int CLIENT_AUTH_TIMEOUT = 300;
+        //
+
+        new Thread(() -> {
+            // заменим исходный вариант на
+            // способ с лямбдой
+            // new Thread(new Runnable() {
+            // в этом потоке
+
+            while (true) {
+                // бесколнечный цикл, в котором ...
+
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                    // пауза в потоке для ...
+                    // "without this server do not have time to write something to client"
+
+                    HashSet<ClientHandler> hss = new HashSet<>();
+                    // создай хэш-множество объектов-клиентов
+                    // типа нашего обработчика
+
+                    for (ClientHandler o : clients) {
+                        // для каждого клиента из списка,
+                        // который и есть часть нашего сервера
+
+                        if (o.getName().isEmpty()) {
+                            // проверяем, а есть ли у него имя?
+
+                            o.setAuthTimer(o.getAuthTimer() + 1);
+                            // эээ, надо читать чертёж ClientHandler,
+                            // чтобы понять что-нибудь
+
+                            if (o.getAuthTimer() > CLIENT_AUTH_TIMEOUT) {
+                                hss.add(o);
                             }
                         }
-                        for (ClientHandler o : hss) {
-                            o.close();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+
                     }
+
+                    for (ClientHandler o : hss) {
+                        o.close();
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }).start();
@@ -63,7 +94,6 @@ public class MyServer {
             }
         }
     }
-
 
 
     public void remove(ClientHandler o) {
