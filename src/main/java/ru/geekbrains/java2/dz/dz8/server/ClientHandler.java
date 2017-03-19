@@ -113,33 +113,67 @@ public class ClientHandler implements Runnable {
                 if (w != null) {
 
                     String[] n = w.split("\t");
-                    // 
+                    // разделяем строку по пробелам\табуляциям
+                    // и укладываем кусочки в массив строк.
+                    // В последующих ячейках массива: пассворд, никнэйм и логин.
 
                     if (n[0].equals("addNewUser")) {
+                        // если пришла команда добавить пользователя
+
                         sendMsg("addNewUser: " + SQLHandler.addNewUser(n[1], n[2], n[3]));
+                        // посылаем клиенту сообщение
+                        // о результатах добавления нового пользователя
+
                         continue;
+                        // переход к ожиданию следующей входящей строки
                     }
+
                     if (n[0].equals("changePassword")) {
+                        // если пришла команда сменить пароль пользователя
+
                         sendMsg("changePassword: " + SQLHandler.changePassword(n[1], n[2]));
+                        // посылаем клиенту сообщение
+                        // о результатах смены пароля
+
                         continue;
+                        // переход к ожиданию следующей входящей строки
                     }
+
                     if (n[0].equals("auth")) {
+                        // если пришла команда Ау
+
                         String t = SQLHandler.getNickByLoginPassword(n[1], n[2]);
+                        // вводим ещё одну строку
+                        // для хранения ника пользователя
+
                         if (t != null && !owner.isNicknameUsed(t)) {
+                            // если никнейм присутствует и он не занят, то
+
                             owner.broadcastMsg(t + " connected to the chatroom");
+                            // оповестить пользователей о присоединении юзера.
+
                             name = t;
+                            // имя присоединённого пользователя
+
                             sendMsg("zxcvb");
+                            // посылаем заклинание
 
                             break;
                             // если подконнектили пользователя к чату,
                             // выходим из цикла приёма строчки
                             // в следующий цикл приёма строчки,
-                            // который будет принимать имя пользователя (?)
+                            // который будет двигать
+                            // собственно переписку данного пользователя.
 
                         } else {
+                            // если невозможно подключить к чату:
+
                             if (t == null)
                                 sendMsg("Auth Error: No such account");
+                            // нет в базе данных такого имени
+
                             if (owner.isNicknameUsed(t))
+                                // имя уже занято
                                 sendMsg("Auth Error: Account are busy");
                         }
                     }
@@ -151,15 +185,30 @@ public class ClientHandler implements Runnable {
 
             }
 
+
             while (true) {
+                // второй цикл нужен, чтобы
+                // от пользователя принять сообщение и
+                // отправлять сообщение до клиента.
+
                 String w = in.readUTF();
+                // принять строку
+
                 if (w != null) {
+                    // если она не пустая
+
                     owner.broadcastMsg(name + ": " + w);
+                    // передай строку
+
                     System.out.println(name + ": " + w);
+                    // продублируй передачу в консольку
+
                     if (w.equalsIgnoreCase("END")) break;
+                    // END служебное слово
                 }
                 Thread.sleep(100);
             }
+
 
         } catch (IOException e) {
             System.out.println("IOException");

@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe3923d1-d5b7-488c-ba57-8902e86b30b5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/server/ClientHandler.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/server/MainClass.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/server/SQLHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/ClientHandler.java" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/ClientHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/MainClass.java" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/MainClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/MyServer.java" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/MyServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/SQLHandler.java" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/SQLHandler.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,8 +26,18 @@
       <file leaf-file-name="ClientHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/ClientHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="115" column="23" lean-forward="false" selection-start-line="115" selection-start-column="23" selection-end-line="115" selection-end-column="23" />
+            <state relative-caret-position="-1495">
+              <caret line="165" column="73" lean-forward="false" selection-start-line="165" selection-start-column="73" selection-end-line="165" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SQLHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/SQLHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -1049,6 +1053,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="581">
           <caret line="60" column="46" lean-forward="false" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1056,13 +1061,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2761">
           <caret line="147" column="17" lean-forward="false" selection-start-line="147" selection-start-column="17" selection-end-line="147" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/SQLHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1102,10 +1100,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/SQLHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/ClientHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="115" column="23" lean-forward="false" selection-start-line="115" selection-start-column="23" selection-end-line="115" selection-end-column="23" />
+        <state relative-caret-position="-1495">
+          <caret line="165" column="73" lean-forward="false" selection-start-line="165" selection-start-column="73" selection-end-line="165" selection-end-column="73" />
           <folding />
         </state>
       </provider>
