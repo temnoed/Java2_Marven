@@ -219,22 +219,49 @@ public class ClientHandler implements Runnable {
         }
     }
 
+
+    /**
+     * Метод закрывает сокет и
+     * удаляет рбъект ClientHandler
+     * из списка клиентов сервера.
+     * То есть, фактически отключает дпнного клиента.
+     */
     public void close() {
         try {
             System.out.println("Client disconnected");
+
             owner.remove(this);
+            // использует метод класса MyServer
+
             s.close();
+            // "наш" сокет
+
             if (!name.isEmpty())
+                // хороший способ проверить строку вместо !null
+
                 owner.broadcastMsg(name + " disconnected from the chatroom");
+            // ну и оповещаем в окно клиента
+
         } catch (IOException e) {
+            // обрабытывыем ошибки ввода вывода
+            // inputstream outputstream.
         }
     }
 
+
+    /**
+     * Посылаем строку-сообщение
+     * используя пару стандартных методов
+     * @param msg
+     */
     public void sendMsg(String msg) {
         try {
             out.writeUTF(msg);
             out.flush();
+            // очищаем буфер вывода
+
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
