@@ -224,7 +224,7 @@ public class ClientHandler implements Runnable {
      * Метод закрывает сокет и
      * удаляет рбъект ClientHandler
      * из списка клиентов сервера.
-     * То есть, фактически отключает дпнного клиента.
+     * То есть, фактически отключает данного клиента.
      */
     public void close() {
         try {

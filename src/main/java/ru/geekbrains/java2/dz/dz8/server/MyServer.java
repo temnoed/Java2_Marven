@@ -17,15 +17,15 @@ public class MyServer {
 
 
     public MyServer() {
+
         ServerSocket server = null;
-        // сокет, к которуму будут цепляться клинеты?
-        // нельзя ли эти объекты сделать полями класса ?
+        // сокет сервера, к которуму будут цепляться клинеты?
 
         Socket s = null;
-        // ещё один сокет
+        // ещё один сокет для новоявленных клиентов
 
         final int CLIENT_AUTH_TIMEOUT = 300;
-        //
+        // время на Ау клиента
 
         new Thread(() -> {
             // заменим исходный вариант на
@@ -53,54 +53,103 @@ public class MyServer {
                             // проверяем, а есть ли у него имя?
 
                             o.setAuthTimer(o.getAuthTimer() + 1);
-                            // эээ, надо читать чертёж ClientHandler,
-                            // чтобы понять что-нибудь
+                            // увеличиваем счётчик времени Ау клиента на 1
 
                             if (o.getAuthTimer() > CLIENT_AUTH_TIMEOUT) {
+                                // и тотчас проверяем этот счётчик
+                                // на достижение предела
+
                                 hss.add(o);
+                                // если время Ау "пришло"
+                                // добавляем объект-клиента в хэш-множество
+
                             }
                         }
 
                     }
 
                     for (ClientHandler o : hss) {
+                        // для каждого клиента в хэш-множестве
+
                         o.close();
+                        // закрываем методом из ClientHandler
                     }
                 } catch (InterruptedException e) {
+                    // обрабатываем тсключение-нарушение потока
                     e.printStackTrace();
                 }
             }
         }).start();
 
+
+
         try {
+            // основной поток:
+
             server = new ServerSocket(8189);
+            // сервер запустили
             System.out.println("Server created. Waiting for client...");
+
             while (true) {
                 s = server.accept();
+                // ждём клиента
                 System.out.println("Client connected");
+
                 ClientHandler h = new ClientHandler(s, this);
+
                 clients.add(h);
+                // полезай, клиент, в список
+
                 new Thread(h).start();
+                // так как всё готово для работы над клиентом
+                // запускаем в параллельном потоке обработчик этого самого клиента
+                // ибо он (обработчик) унаследованный от runnable
             }
+
+
         } catch (IOException e) {
             e.printStackTrace();
+
+
         } finally {
+            // многие не рекомендуют использовать
+            // finnally вообще, а мы будем!
+
             try {
                 server.close();
+                // стандартным методом прикроем сокет сервера
+
                 System.out.println("Server closed");
                 s.close();
-            } catch (IOException e) {
+                // и клиента, который последним пришёл
+
+            } catch (IOException  e) {
                 e.printStackTrace();
             }
         }
     }
 
 
-    public void remove(ClientHandler o) {
+
+
+    /**
+     * Удалить клиента из списка при
+     * отключении клиента
+     * @param o
+     */
+    void remove(ClientHandler o) {
         clients.remove(o);
+        // стандартный метод работы сос писками
+        // удаляет первый соответствующий объект из списка
     }
 
-    public boolean isNicknameUsed(String nick) {
+
+    /**
+     * Проверяет есть ли в списке клиент с данными ником
+     * @param nick
+     * @return
+     */
+    boolean isNicknameUsed(String nick) {
         for (ClientHandler o : clients) {
             if (o.getName().equals(nick))
                 return true;
@@ -108,17 +157,40 @@ public class MyServer {
         return false;
     }
 
-    public void broadcastMsg(String msg) {
+
+    /**
+     * Главный метод, который высылает клиентам
+     * строки с сообщениями от сервера.
+     * @param msg
+     */
+    void broadcastMsg(String msg) {
+
         String[] s = msg.split("@#");
+        // делим строку сообщения символами @#
+
         System.out.println(Arrays.toString(s));
+        // покажем нашу строку без спецсимволов
+
         if (s.length == 2) {
+            // тут проверяем входит ли имя в наше сообщение:
+
             for (ClientHandler o : clients) {
+                // пробежимся по всем клиентам-объектам
+
                 if (s[0].split(": ")[1].equals(o.getName()))
+                    // и если имя  в сообщении совпадает с именем клиента,
+
                     o.sendMsg(s[1]);
+                // посылаем тому срочку.
             }
+
         } else {
+            // если имя не входит в строку сообщения, то
+
             for (ClientHandler o : clients) {
                 if (!o.getName().isEmpty())
+                    // посылаем сообщение только тем объектам, у которых вообще есть имя
+
                     o.sendMsg(msg);
             }
         }
