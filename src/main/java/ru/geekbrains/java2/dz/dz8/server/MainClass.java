@@ -16,6 +16,9 @@ public class MainClass {
 
     public static void main(String[] args) {
 
+
+
+
         JFrame jf = new JFrame();
         // создать объект-окно
         jf.setBounds(500, 500, 100, 100);
