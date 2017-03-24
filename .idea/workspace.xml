@@ -2,27 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe3923d1-d5b7-488c-ba57-8902e86b30b5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/server/MyServer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/ChangePasswordWindow$1.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/AboutWindow.class" afterPath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/AboutWindow.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/ChangePasswordWindow.class" afterPath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/ChangePasswordWindow.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MainClass.class" afterPath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MainClass.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow$1.class" afterPath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow$2.class" afterPath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow.class" afterPath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/client/MyWindow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/server/ClientHandler.class" afterPath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/server/ClientHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/server/MainClass.class" afterPath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/server/MainClass.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/server/MyServer.class" afterPath="$PROJECT_DIR$/target/classes/ru/geekbrains/java2/dz/dz8/server/MyServer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/AboutWindow.java" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/AboutWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/AddNewUserWindow.java" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/AddNewUserWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/ChangePasswordWindow.java" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/ChangePasswordWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/MainClass.java" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/MainClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/MyWindow.java" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/MyWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/MainClass.java" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/MainClass.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,18 +30,7 @@
     <favorites_list name="j2Maven" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MyWindow.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/MyWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="286" column="7" lean-forward="true" selection-start-line="286" selection-start-column="7" selection-end-line="286" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -60,6 +38,12 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>action</find>
+      <find>save</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,8 +67,11 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/MyServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/MainClass.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/MainClass.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/MyWindow.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/ChangePasswordWindow.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/MainClass.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/AboutWindow.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/AddNewUserWindow.java" />
       </list>
     </option>
   </component>
@@ -704,8 +691,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -717,7 +704,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1726058" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1726058" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -789,16 +776,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/lesson7/db/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/lesson7/db/db.txt" />
-    <entry file="file://$PROJECT_DIR$/J2Marven.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz6/MaksimBoldyrev/client/MainClass.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -917,27 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="123" column="39" lean-forward="false" selection-start-line="123" selection-start-column="39" selection-end-line="123" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/AddNewUserWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/ChangePasswordWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/AboutWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1088,13 +1044,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/MainClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/javax/swing/JTextArea.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -1111,18 +1060,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/MainClass.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/javax/swing/JFileChooser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        <state relative-caret-position="228">
+          <caret line="294" column="11" lean-forward="false" selection-start-line="294" selection-start-column="11" selection-end-line="294" selection-end-column="11" />
+          <folding>
+            <element signature="e#9257#9258#0" expanded="true" />
+            <element signature="e#9313#9314#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/ChangePasswordWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="60" column="26" lean-forward="false" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/MyWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="286" column="7" lean-forward="true" selection-start-line="286" selection-start-column="7" selection-end-line="286" selection-end-column="7" />
+        <state relative-caret-position="419">
+          <caret line="149" column="13" lean-forward="true" selection-start-line="149" selection-start-column="13" selection-end-line="149" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/server/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/AboutWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="14" column="64" lean-forward="true" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/awt/HeadlessException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/awt/FlowLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="201" column="11" lean-forward="false" selection-start-line="201" selection-start-column="11" selection-end-line="201" selection-end-column="11" />
+          <folding>
+            <element signature="e#5403#5404#0" expanded="true" />
+            <element signature="e#5437#5438#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/javax/swing/JFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="605" column="16" lean-forward="false" selection-start-line="605" selection-start-column="16" selection-end-line="605" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/java2/dz/dz8/client/AddNewUserWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="81" column="11" lean-forward="false" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
           <folding />
         </state>
       </provider>

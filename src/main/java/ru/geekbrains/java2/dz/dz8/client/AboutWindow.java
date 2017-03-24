@@ -5,7 +5,8 @@ import java.awt.*;
 
 
 public class AboutWindow extends JFrame {
-    public AboutWindow() throws HeadlessException {
+
+     AboutWindow() throws HeadlessException {
         super("About Messenger"); //Заголовок окна
         setBounds(100, 100, 200, 200); //Если не выставить
         setSize(200, 100);
@@ -13,6 +14,7 @@ public class AboutWindow extends JFrame {
         setTitle("About Messenger");
         setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
     }
+
 
     public  void paint (Graphics g) {
         g.setColor(Color.BLUE);

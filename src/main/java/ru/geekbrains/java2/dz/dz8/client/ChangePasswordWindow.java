@@ -18,7 +18,8 @@ public class ChangePasswordWindow extends JFrame {
     DataInputStream in;
     DataOutputStream out;
 
-    public ChangePasswordWindow() throws HeadlessException {
+
+    ChangePasswordWindow() throws HeadlessException {
         super("Change Password"); //Заголовок окна
         setSize(600, 70);
         setResizable(false);
@@ -29,9 +30,9 @@ public class ChangePasswordWindow extends JFrame {
         JPanel addNewUserPanel = new JPanel(layout);
         setLayout(layout);
 
-        JLabel labelLogin = new JLabel ("Login");
+        JLabel labelLogin = new JLabel("Login");
         JTextField jtfLogin = new JTextField("Login");
-        JLabel labelPassword = new JLabel ("Password");
+        JLabel labelPassword = new JLabel("Password");
         JTextField jtfPass = new JTextField("Password");
         JButton jbChangePassword = new JButton("Change Password");
 
@@ -46,18 +47,20 @@ public class ChangePasswordWindow extends JFrame {
         addNewUserPanel.add(jbChangePassword);
         add(addNewUserPanel, layout);
 
-        jbChangePassword.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String str = "changePassword\t" + jtfLogin.getText() + "\t" + jtfPass.getText();
-                System.out.println(str);
-                connect(str);
-            }
+
+        jbChangePassword.addActionListener(lambda -> {
+            String str = "changePassword\t" + jtfLogin.getText() + "\t" + jtfPass.getText();
+            System.out.println(str);
+            connect(str);
         });
         setVisible(true);
     }
 
 
+    /**
+     * Ещё один коннект...
+     * @param cmd
+     */
     public void connect(String cmd) {
         try {
             socket = new Socket(SERVER_ADDR, SERVER_PORT);

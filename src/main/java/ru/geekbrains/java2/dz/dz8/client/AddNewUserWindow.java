@@ -18,7 +18,11 @@ public class AddNewUserWindow extends JFrame {
     DataInputStream in;
     DataOutputStream out;
 
-    public AddNewUserWindow() throws HeadlessException {
+
+    AddNewUserWindow() throws HeadlessException {
+        // Исключение выходит,
+        // если технические устройства не воспринимаю код (нет мышки)
+
         super("Add New User"); //Заголовок окна
         setBounds(100, 100, 200, 200); //Если не выставить
         setSize(600, 70);
@@ -27,14 +31,16 @@ public class AddNewUserWindow extends JFrame {
         setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 
         FlowLayout layout = new FlowLayout();
+        // форма вывода 5*5
         JPanel addNewUserPanel = new JPanel(layout);
         setLayout(layout);
+        // устанавливаем расположение (менеджеры компоновки)
 
-        JLabel labelNickname = new JLabel ("Nickname");
+        JLabel labelNickname = new JLabel("Nickname");
         JTextField jtfNickname = new JTextField("Nickname");
-        JLabel labelLogin = new JLabel ("Login");
+        JLabel labelLogin = new JLabel("Login");
         JTextField jtfLogin = new JTextField("Login");
-        JLabel labelPassword = new JLabel ("Password");
+        JLabel labelPassword = new JLabel("Password");
         JTextField jtfPass = new JTextField("Password");
         JButton jbAddNewUser = new JButton("Add New User");
 
@@ -53,20 +59,27 @@ public class AddNewUserWindow extends JFrame {
         add(addNewUserPanel, layout);
 
 
-        jbAddNewUser.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String str = "addNewUser\t" + jtfPass.getText() + "\t" + jtfNickname.getText() + "\t" + jtfLogin.getText();
-                System.out.println(str);
-                connect(str);
-            }
+        jbAddNewUser.addActionListener(lambda -> {
+            // формируем команду на сервер
+            // и посылаем её методом connect(str)
+
+            String str = "addNewUser\t" +
+                    jtfPass.getText() +
+                    "\t" +
+                    jtfNickname.getText() +
+                    "\t" +
+                    jtfLogin.getText();
+
+            System.out.println(str);
+            connect(str);
         });
         setVisible(true);
     }
 
 
-
     public void connect(String cmd) {
+        // отправляем комманду на сервер
+        // вместе с коннектом в одном методе
         try {
             socket = new Socket(SERVER_ADDR, SERVER_PORT);
             OutputStream o = socket.getOutputStream();
@@ -74,6 +87,7 @@ public class AddNewUserWindow extends JFrame {
             out.writeUTF(cmd);
             out.flush();
             in = new DataInputStream(socket.getInputStream());
+            // как тут делается дисконнект неясно, но да фиг с ним...
 
         } catch (IOException e) {
             e.printStackTrace();
