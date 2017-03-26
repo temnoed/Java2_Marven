@@ -35,9 +35,20 @@ public class ClientHandler implements Runnable {
     private DataInputStream in;
 
     /**
-     * Имя
+     * У клиента есть Имя
      */
     private String name;
+
+
+    /**
+     * И есть Login
+     */
+    private String login;
+
+    /**
+     * И есть Pass
+     */
+    private String password;
 
     /**
      * Таймер-счётчик авторизации
@@ -66,6 +77,14 @@ public class ClientHandler implements Runnable {
      */
     String getName() {
         return name;
+    }
+
+
+    /**
+     * @return login
+     */
+    String getLogin() {
+        return login;
     }
 
 
@@ -101,7 +120,9 @@ public class ClientHandler implements Runnable {
         try {
 
             while (true) {
-                // цикл приёма строки от клиента
+                // цикл приёма строки от клиента:
+                // обрабатываем служебные команда от клиента:
+                // Ау, смена пароля и т.п.
 
                 String w = in.readUTF();
                 // "ожидаем пока клиент пришлет строку текста"
@@ -115,7 +136,7 @@ public class ClientHandler implements Runnable {
                     String[] n = w.split("\t");
                     // разделяем строку по пробелам\табуляциям
                     // и укладываем кусочки в массив строк.
-                    // В последующих ячейках массива: пассворд, никнэйм и логин.
+                    // В последующих ячейках массива: 0-команда.
 
                     if (n[0].equals("addNewUser")) {
                         // если пришла команда добавить пользователя
@@ -140,23 +161,28 @@ public class ClientHandler implements Runnable {
                     }
 
                     if (n[0].equals("auth")) {
-                        // если пришла команда Ау
+                        // если пришла команда Ау 1-логин, 2-пароль.
 
                         String t = SQLHandler.getNickByLoginPassword(n[1], n[2]);
                         // вводим ещё одну строку
                         // для хранения ника пользователя
 
                         if (t != null && !owner.isNicknameUsed(t)) {
-                            // если никнейм присутствует и он не занят, то
+                            // есть ли пользователь с таким ником, то
+                            // кстати, t будет не null, если пароль правильный
 
                             owner.broadcastMsg(t + " connected to the chatroom");
                             // оповестить пользователей о присоединении юзера.
 
                             name = t;
                             // имя присоединённого пользователя
+                            // и остальное сообщаем полям
+                            // нашего класса ClientHandler
+                            login = n[1];
+                            password = n[2];
 
                             sendMsg("zxcvb");
-                            // посылаем заклинание
+                            // посылаем заклинание = Ау произошло
 
                             break;
                             // если подконнектили пользователя к чату,
@@ -168,13 +194,28 @@ public class ClientHandler implements Runnable {
                         } else {
                             // если невозможно подключить к чату:
 
-                            if (t == null)
-                                sendMsg("Auth Error: No such account");
-                            // нет в базе данных такого имени
 
-                            if (owner.isNicknameUsed(t))
-                                // имя уже занято
-                                sendMsg("Auth Error: Account are busy");
+                            if (t == null) {
+
+                                if (SQLHandler.hasNotSuchLogin(n[1])) {
+                                    // если нет такого логина
+                                    sendMsg("Auth Error: No such login.");
+
+                                } else {
+
+                                    if (!SQLHandler.isPasswordCorrect(n[1], n[2])) {
+                                        // пароль не пароль
+                                        sendMsg("Auth Error: Password not correct.");
+                                    }
+                                }
+
+
+                            } else {
+
+                                if (owner.isNicknameUsed(t))
+                                    // имя уже занято
+                                    sendMsg("Auth Error: Account are busy, are using.");
+                            }
                         }
                     }
                 }
@@ -194,18 +235,35 @@ public class ClientHandler implements Runnable {
                 String w = in.readUTF();
                 // принять строку
 
+
                 if (w != null) {
                     // если она не пустая
 
-                    owner.broadcastMsg(name + ": " + w);
-                    // передай строку
-
                     System.out.println(name + ": " + w);
-                    // продублируй передачу в консольку
+                    // первым делом продублируй передачу в консольку
 
                     if (w.equalsIgnoreCase("END")) break;
-                    // END служебное слово
+                    // дальше проверяем на служебные комманды:
+                    // END служебное слово - конец сессии
+
+
+                    if (w.matches("^CHANGENICK\\s(\\w+){3,32}$")) {
+                        // используем регулярное выражение стыреное из Инета
+                        // чтобы читать команду "сменить ник!"
+
+                        changeNick(w, login, password );
+                        // w - команда, логин, пасс
+                        // манипулируем полями нашего класса
+
+                        continue;
+                    }
+
+
+                    owner.broadcastMsg(name + ": " + w);
+                    // передай строку
                 }
+
+
                 Thread.sleep(100);
             }
 
@@ -252,6 +310,7 @@ public class ClientHandler implements Runnable {
     /**
      * Посылаем строку-сообщение
      * используя пару стандартных методов
+     *
      * @param msg
      */
     public void sendMsg(String msg) {
@@ -264,4 +323,29 @@ public class ClientHandler implements Runnable {
             e.printStackTrace();
         }
     }
-}
+
+
+    /**
+     * Метод меняет ник пользователя
+     * отталкиваясь от служебной команды
+     **/
+    private boolean changeNick(String strCommand, String login_m, String password_m) {
+        // в метод обязательно передаём логин и пароль "для безопасности"
+
+        String newNick;
+        newNick = strCommand.split("\\s")[1];
+        // откусываем правую часть от команды - новый ник
+        // и выполняем замену в БД
+
+        if (SQLHandler.setNewNickname(newNick, login_m, password_m)) {
+            name = newNick;
+            System.out.println ("Nick changed. New nick: " + name);
+            sendMsg("Nick changed. New nick: " + name);
+            return true;
+
+        } else {
+            return false;
+        }
+    }
+
+} // END ClientHandler

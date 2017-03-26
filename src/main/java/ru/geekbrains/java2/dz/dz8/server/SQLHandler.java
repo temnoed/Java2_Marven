@@ -3,10 +3,12 @@ package ru.geekbrains.java2.dz.dz8.server;
 import java.sql.*;
 // подключить библиотеку для SQL
 
+
 /**
  * Класс для обработки базы данных
  */
 public class SQLHandler implements AutoCloseable {
+
 
     /**
      * Поля класса характеризуют обычное подключение к БД
@@ -15,14 +17,18 @@ public class SQLHandler implements AutoCloseable {
     private static final String dbUrl =
             "jdbc:postgresql://localhost:5432/postgres";
     // ip адрес и порт БД
+
     private static final String user = "postgres";
     // имя БД
+
     private static final String password = "123456";
+
 
     private static final String SQL_SELECT =
             "SELECT Nickname FROM main " +
                     "WHERE Login = ? AND Password = ?;";
     // для запроса на выборку по логину и паролю
+    // оставлен оригинальный вариант поля
 
     private static final String SQL_INSERT =
             "INSERT INTO main " +
@@ -226,4 +232,102 @@ public class SQLHandler implements AutoCloseable {
         }
         return false;
     }
+
+
+    /**
+     * Проверяет, что нет такого логина в базе данных.
+     *
+     */
+    static boolean  hasNotSuchLogin(String login) {
+
+        String sql_select_m =
+                "SELECT Login FROM main " +
+                        "WHERE Login = ?;";
+        // запрос на выборку для поиска логина.
+
+
+        try (PreparedStatement pStmt = conn.prepareStatement(sql_select_m)) {
+            // Используем автозакрывашку и создаём запрос на выборку
+
+            pStmt.setString(1, login);
+            // назначаем в запрос параметр
+            ResultSet rs = pStmt.executeQuery();
+            // получи результат запроса в виде
+            // хитрого объекта класса ResultSet,
+            // который представляет собой таблицу БД и
+            // курсор, перемещаемый по строчкам вниз
+
+            if (rs.next()) {
+                // двигаем курсор в первую строку
+                // если двинолось, значит такой логин есть в БД
+                // следовательно false
+                return false;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("SQL Query IOExc while looking login!");
+        }
+
+        return  true;
+    }
+
+
+    /**
+     * Проверяет соответствие пароль - логин.
+     *
+     */
+    static boolean  isPasswordCorrect(String login, String password) {
+
+        String sql_select_m =
+                "SELECT Password FROM main " +
+                        "WHERE Login = ? AND Password = ?;";
+        // локальный запрос на выборку
+
+        try (PreparedStatement pStmt = conn.prepareStatement(sql_select_m)) {
+            // Используем автозакрывашку и создаём запрос на выборку
+
+            pStmt.setString(1, login);
+            pStmt.setString(2, password);
+            // назначаем в запрос параметр
+            ResultSet rs = pStmt.executeQuery();
+            // получи результат запроса в виде
+            // хитрого объекта класса ResultSet,
+            // который представляет собой таблицу БД и
+            // курсор, перемещаемый по строчкам вниз
+
+            if (rs.next()) {
+                // двигаем курсор в первую строку
+                // если двинолось, значит такой логин есть в БД
+                // следовательно false
+                return true;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("SQL Query IOExc while testing password!");
+        }
+
+        return  false;
+    }
+
+
+    static  boolean setNewNickname (String newNick, String login, String password) {
+
+        String strSql = "UPDATE main SET nickname = ? " +
+                "WHERE login = ? AND password = ?;";
+
+        try (PreparedStatement pStmt = conn.prepareStatement(strSql)) {
+            pStmt.setString(1, newNick);
+            pStmt.setString(2, login);
+            pStmt.setString(3, password);
+
+            if (pStmt.executeUpdate() > 0) return true;
+
+        } catch (SQLException e) {
+            System.out.println("SQL Query Error when try set new nick.");
+        }
+        return false;
+
+    }
+
+
 }

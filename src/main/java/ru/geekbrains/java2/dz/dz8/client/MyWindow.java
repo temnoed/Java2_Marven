@@ -194,7 +194,7 @@ public class MyWindow extends JFrame {
                     String w = in.readUTF();
                     if (w != null) {
                         if (w.equals("zxcvb")) {
-                            jta.setText("Connected\n");
+                            jta.setText("Server: Connected\n");
                             authorized = true;
                             // суть цикла в том, чтобы установить ключ Ау
                             break;
@@ -243,7 +243,7 @@ public class MyWindow extends JFrame {
             out.writeUTF(str);
             out.flush();
         } catch (IOException e) {
-            System.out.println("Send auth error");
+            System.out.println("Send auth IOException");
         }
     }
 
@@ -259,7 +259,7 @@ public class MyWindow extends JFrame {
                 out.flush();
                 jtf.setText("");
             } catch (IOException e) {
-                System.out.println("Send msg error");
+                System.out.println("Send msg IOEx error");
             }
         }
     }
